@@ -6,11 +6,11 @@ JOTPOT Sound is very simple and easy to use, simply put the JOTPOTSound.js file 
 <h2>Reference</h2>
 <table>
 <tr>
-<td>JOTPOTSound.play(<sound file to play>,<weather or not to loop>,<volume of audio>) / jps.play(<sound file to play>,<weather or not to loop>,<volume of audio>)</td>
+<td>JOTPOTSound.play(&#60;sound file to play>,&#60;weather or not to loop&#62;,&#60;volume of audio&#62;) / jps.play(&#60;sound file to play&#62;,&#60;weather or not to loop&#62;,&#60;volume of audio&#62;)</td>
 <td>Plays a audio file (after being played onces it stays loaded incase played again)</td>
 </tr>
 <tr>
-<td>JOTPOTSound.pause(<sound file to pause>) / jps.pause(<sound file to pause>)</td>
+<td>JOTPOTSound.pause(&#60;sound file to pause&#62;) / jps.pause(&#60;sound file to pause&#62;)</td>
 <td>Plays a audio file (after being played onces it stays loaded incase played again)</td>
 </tr>
 </table>
