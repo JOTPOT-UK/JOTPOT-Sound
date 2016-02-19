@@ -7,7 +7,9 @@
 
 var JOTPOTSound = {
 	
-	"play" : function (trackToPlay,loopQ,volume) {
+	"soundsList" : [] ,
+	
+	"play" : function (trackToPlay,loopQ,volume,playFrom) {
 		
 		if (typeof this.sounds === "undefined") {
 			
@@ -31,11 +33,20 @@ var JOTPOTSound = {
 			   "audioElement" : newSound
 			   
 		   } ;
+		   this.soundsList.push(trackToPlay) ;
+		   jps.soundsList = this.soundsList ;
 		   
 		}
 		
 		this.sounds[trackToPlay].audioElement.loop = loopQ ;
 		this.sounds[trackToPlay].audioElement.volume = volume ;
+		
+		if (typeof playFrom !== "undefined") {
+			
+			this.sounds[trackToPlay].audioElement.currentTime = playFrom ;
+			
+		}
+		
 		this.sounds[trackToPlay].audioElement.play() ;
 		
 	} ,
@@ -69,13 +80,42 @@ var JOTPOTSound = {
 		
 		this.sounds[trackToPause].audioElement.pause() ;
 		
+	} ,
+	
+	"pauseAll" : function () {
+		
+		var doing = 0 ;
+		while (doing !== this.soundsList.length) {
+			
+			this.pause(this.soundsList[doing]) ;
+			doing++ ;
+			
+		}
+		
 	}
 	
 } ;
 
 var jps = {
 	
-	"play" : JOTPOTSound.play ,
-	"pause" : JOTPOTSound.pause 
+	"soundsList": [],
+	
+	"play": function (trackToPlay,loopQ,volume,playFrom) {
+		
+		JOTPOTSound.play(trackToPlay,loopQ,volume,playFrom) ;
+		
+	},
+	
+	"pause": function (trackToPause) {
+		
+		JOTPOTSound.pause(trackToPause) ;
+		
+	},
+	
+	"pauseAll": function () {
+		
+		JOTPOTSound.pauseAll() ;
+		
+	}
 	
 } ;
